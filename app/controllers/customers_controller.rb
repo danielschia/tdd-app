@@ -6,4 +6,18 @@ class CustomersController < ApplicationController
     @customer = Customer.new
   end
 
+  def create
+    @customer = Customer.new(customer_params)
+    if @customer.save
+      redirect_to customers_path, notice: t("activerecord.models.customer.created")
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def customer_params
+    params.require(:customer).permit(:id, :name, :email, :smoker, :phone, :avatar)
+  end
 end
