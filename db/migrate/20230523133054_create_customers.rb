@@ -3,7 +3,7 @@ class CreateCustomers < ActiveRecord::Migration[7.0]
     create_table :customers do |t|
       t.string :name
       t.string :email
-      t.string :smoker
+      t.boolean :smoker
       t.string :phone
       t.string :avatar
 
