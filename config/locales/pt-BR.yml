@@ -4,14 +4,20 @@ pt-BR:
       customer:
         one: Cliente
         other: Clientes
+        create_client: Criar Cliente
+        created: Cliente cadastrado com sucesso
+        clients_list: Lista de Clientes
     attributes:
       customer:
         id: Código
         name: Nome
         email: Email
         phone: Telefone
-        smoker: Fumante?
+        smoker: Fumante
         avatar: Foto do Perfil
         created_at: Criado em
         updated_at: Atualizado em
   new_customer: Novo Cliente
+  options:
+    positive: Sim
+    negative: Não
