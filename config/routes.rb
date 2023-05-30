@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  resources :customers, only: [:index, :new, :create]
+  resources :customers
   root to: "welcome#index"
 end
