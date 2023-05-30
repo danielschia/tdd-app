@@ -38,4 +38,54 @@ feature "Customers", type: :feature do
     click_on("Criar Cliente")
     expect(page).to have_content("não pode ficar em branco")
   end
+
+  scenario "Show a customer" do
+    customer = create (:customer)
+    visit(customer_path(customer.id))
+    expect(page).to have_content(customer.name)
+  end
+
+  scenario "Test index page" do
+    customer1 = create (:customer)
+    customer2 = create (:customer)
+
+    visit(customers_path)
+    expect(page).to have_content(customer1.name) 
+    expect(page).to have_content(customer2.name)
+  end
+
+  scenario "Test update customer" do
+    customer1 = create (:customer)
+
+    new_name = Faker::Name.name
+    visit(edit_customer_path(customer1.id))
+    fill_in("Nome", with: new_name)
+    click_on("Atualizar Cliente")
+    expect(page).to have_content("Cliente atualizado com sucesso")
+    expect(page).to have_content(new_name)
+  end
+
+  scenario "Test show link in index" do
+    customer1 = create (:customer)
+    visit(customers_path)
+    find(:xpath, "/html/body/table/tbody/tr[1]/td[2]/a").click
+    expect(page).to have_content("Mostrando Cliente")
+  end
+
+  scenario "Test edit link in index" do
+    customer1 = create (:customer)
+    visit(customers_path)
+    find(:xpath, "/html/body/table/tbody/tr[1]/td[3]/a").click
+    expect(page).to have_content("Editar Cliente")
+  end
+
+  scenario "Test delete link in index", js: true do
+    customer1 = create (:customer)
+    visit(customers_path)
+    find(:xpath, "/html/body/table/tbody/tr[1]/td[4]/a").click
+    1.second
+    page.driver.browser.switch_to.alert.accept
+    
+    expect(page).to have_content("Cliente excluído com sucesso")
+  end
 end
