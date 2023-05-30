@@ -5,7 +5,10 @@ pt-BR:
         one: Cliente
         other: Clientes
         create_client: Criar Cliente
+        update_client: Atualizar Cliente
         created: Cliente cadastrado com sucesso
+        updated: Cliente atualizado com sucesso
+        deleted: Cliente excluído com sucesso
         clients_list: Lista de Clientes
     attributes:
       customer:
@@ -18,6 +21,8 @@ pt-BR:
         created_at: Criado em
         updated_at: Atualizado em
   new_customer: Novo Cliente
+  edit_customer: Editar Cliente
+  show_customer: Mostrando Cliente
   options:
     positive: Sim
     negative: Não
