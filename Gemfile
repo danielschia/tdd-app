@@ -34,6 +34,10 @@ gem "rails-i18n"
 
 gem "byebug"
 
+gem "selenium-webdriver"
+
+gem "webdrivers"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -61,6 +65,12 @@ group :development, :test do
   gem "capybara"
 
   gem "faker"
+
+  gem "selenium-webdriver"
+
+  gem "webdrivers"
+
+  gem "factory_bot_rails"
 end
 
 group :development do
